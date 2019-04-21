@@ -3,6 +3,7 @@ package com.redistest.controller;
 import com.alibaba.fastjson.JSON;
 import com.redistest.model.User;
 import com.redistest.utils.JedisUtil;
+import com.redistest.utils.RedisUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
