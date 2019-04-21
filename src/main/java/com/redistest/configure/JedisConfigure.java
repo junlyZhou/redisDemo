@@ -11,7 +11,7 @@ import redis.clients.jedis.JedisPoolConfig;
 /**
  * @author zhoujunli
  * @date 2019/4/19 0019
- * @desc
+ * @desc jedis配置，可以实现使用jedis来操作redis数据库
  */
 @Configuration
 public class JedisConfigure {
@@ -47,7 +47,11 @@ public class JedisConfigure {
         //jedisPoolConfig.setBlockWhenExhausted(blockWhenExhausted);
         // 是否启用pool的jmx管理功能, 默认true
         jedisPoolConfig.setJmxEnabled(true);
+        //没有密码用这个构造方式生成jedisPool
         JedisPool jedisPool = new JedisPool(jedisPoolConfig, host, port, timeout);
+
+        //如果redis缓存设置了密码，使用下面的构造方式
+        //JedisPool jedisPool = new JedisPool(jedisPoolConfig, host, port, timeout,password);
         return jedisPool;
     }
 

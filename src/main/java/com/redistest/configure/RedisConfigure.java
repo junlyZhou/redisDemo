@@ -16,10 +16,11 @@ import org.springframework.http.converter.HttpMessageConverter;
 /**
  * @Author: Administrator
  * @Date: 2019/4/20 0020 16:31
- * @Description:
+ * @Description: 用RedisTemplate来实现以fastjson的格式存储redis缓存
+ * redisTemplate 和jedis在项目中用一个就可以了
  */
 @Configuration
-public class RedisConfig {
+public class RedisConfigure {
 
     @Bean
     public RedisSerializer<Object> fastJson2JsonRedisSerializer() {
@@ -36,6 +37,10 @@ public class RedisConfig {
         return redisTemplate;
     }
 
+    /**
+     * 这个非常重用
+     * @return
+     */
     @Bean
     public HttpMessageConverters fastJsonHttpMessageConverters() {
         FastJsonHttpMessageConverter fastConverter = new FastJsonHttpMessageConverter();

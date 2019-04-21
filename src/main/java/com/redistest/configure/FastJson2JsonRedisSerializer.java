@@ -10,6 +10,10 @@ import org.springframework.data.redis.serializer.SerializationException;
 
 import java.nio.charset.Charset;
 
+/**
+ * 实现redis序列化接口，可以使存入redis缓存的对象以fastjson的格式存入
+ * @param <T>
+ */
 public class FastJson2JsonRedisSerializer <T> implements RedisSerializer<T> {
  private static final Logger logger = LogManager.getLogger(TestRedisController.class);
     public static final Charset DEFAULT_CHARSET = Charset.forName("UTF-8");

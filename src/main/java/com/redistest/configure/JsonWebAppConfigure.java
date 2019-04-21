@@ -16,13 +16,17 @@ import java.util.List;
 /**
  * @Author: Administrator
  * @Date: 2019/4/21 0021 10:48
- * @Description:
+ * @Description: WebMvcConfigurerAdapter 抽象类已经过时，直接实现接口的方式实现消息格式序列化。
  */
 @Configuration
 public class JsonWebAppConfigure implements WebMvcConfigurer {
 
     private static final Logger logger = LogManager.getLogger(JsonWebAppConfigure.class);
 
+    /**
+     * @Desc 消息转换器，以下是转换成fastjson格式。
+     * @param converters
+     */
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         logger.info("converters : " + converters);
